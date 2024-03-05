@@ -1,4 +1,4 @@
-# Execute: python -m unittest -v main_test.py
+# Execute: python3 -m unittest -v main_test.py
 
 from main import Solution
 

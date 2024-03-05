@@ -9,49 +9,49 @@ import (
 
 type TestCase struct {
 	testName       string
-	input          []int
+	s1             string
+	s2             string
 	expectedOutput bool
 }
 
 var testCases = []TestCase{
 	{
 		testName:       "Test1",
-		input:          []int{1, 2, 3, 1},
+		s1:             "anagram",
+		s2:             "nagaram",
 		expectedOutput: true,
 	},
 	{
 		testName:       "Test2",
-		input:          []int{1, 2, 3, 4},
+		s1:             "rat",
+		s2:             "car",
 		expectedOutput: false,
-	},
-	{
-		testName:       "Test3",
-		input:          []int{1, 1, 1, 3, 3, 4, 3, 2, 4, 2},
-		expectedOutput: true,
 	},
 }
 
-func TestSolutionWithHashMap(t *testing.T) {
+func TestSolutionWithCounterMap(t *testing.T) {
 	assert := assert.New(t)
 
 	for _, testCase := range testCases {
 		t.Run(testCase.testName, func(t *testing.T) {
-			input := testCase.input
+			s1 := testCase.s1
+			s2 := testCase.s2
 			expectedOutput := testCase.expectedOutput
-			output := solutionWithHashMap(input)
+			output := solutionWithCounterMap(s1, s2)
 			assert.Equal(expectedOutput, output)
 		})
 	}
 }
 
-func TestSolutionWithArray(t *testing.T) {
+func TestSolutionWithCounterArray(t *testing.T) {
 	assert := assert.New(t)
 
 	for _, testCase := range testCases {
 		t.Run(testCase.testName, func(t *testing.T) {
-			input := testCase.input
+			s1 := testCase.s1
+			s2 := testCase.s2
 			expectedOutput := testCase.expectedOutput
-			output := solutionWithArray(input)
+			output := solutionWithCounterArray(s1, s2)
 			assert.Equal(expectedOutput, output)
 		})
 	}
